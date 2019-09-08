@@ -1,0 +1,81 @@
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  min-width:230px;
+  padding: 1em;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  box-shadow: 5px 5px 2px rgba(177, 175, 175, 0.911);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+}
+
+.btn {
+  &:not(.selected) {
+    border: 1px solid rgb(0, 0, 0);
+  }
+  border-radius: 3px;
+  background-color: rgb(220, 220, 220);
+  padding: 3px;
+  color: #104372;
+
+  &:hover {
+    background-color: rgb(189, 189, 189);
+  }
+}
+
+.area-selected {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+
+  span {
+    float: right;
+    bottom: 13px;
+    right: -10px;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    background: url("./assets/blackCircle.png");
+
+    &:hover {
+      background: url("./assets/whiteCircle.png");
+    }
+  }
+  .nonSelected {
+    display: none;
+  }
+  .btn.selected {
+    display: inline;
+    color: black;
+    text-align: center;
+    font-size: 0.8em;
+
+    input {
+      display: none;
+    }
+  }
+}
+
+.myCheckbox:not(.show) {
+  span {
+    float: left;
+    margin-right: 0.5rem;
+    position: relative;
+    width: 16px;
+    height: 19px;
+    background: url("./assets/notCheckedIcon.png");
+  }
+  input {
+    display: none;
+  }
+  input:checked + span {
+    background: url("./assets/checkedIcon.png");
+  }
+}

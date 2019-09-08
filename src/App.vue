@@ -1,28 +1,62 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <section class="grid area-selected">
+        <label
+          class="btn selected"
+          v-for="selectedCurrency in selectedCurrencies"
+          :key="selectedCurrency"
+        >
+          <input
+            type="checkbox"
+            name="currency"
+            :value="selectedCurrency"
+            v-model="selectedCurrencies"
+          />{{ selectedCurrency }}
+          <span></span>
+        </label>
+      </section>
+      <section class="grid">
+        <label
+          class="btn myCheckbox"
+          v-for="currency in currencies"
+          :key="currency"
+        >
+          <input
+            type="checkbox"
+            name="currency"
+            :value="currency"
+            v-model="selectedCurrencies"
+          />{{ currency }}
+          <span></span>
+        </label>
+      </section>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  data() {
+    return {
+      currencies: [
+        "EUR",
+        "PLN",
+        "GEL",
+        "DKK",
+        "CZK",
+        "GBP",
+        "SEK",
+        "USD",
+        "RUB"
+      ],
+      selectedCurrencies: [],
+    };
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import "./styles/style.scss";
 </style>
